@@ -1,7 +1,7 @@
 class UndergroundSystem:
     def __init__(self):
-        self.check_ins = {}  # {id: (start_station, start_time)}
-        self.trips = {}  # {(start_station, end_station): (total_time, total_count)}
+        self.check_ins = {}  
+        self.trips = {}  
     def checkIn(self, id: int, stationName: str, t: int) -> None:
         self.check_ins[id] = (stationName, t)
 
