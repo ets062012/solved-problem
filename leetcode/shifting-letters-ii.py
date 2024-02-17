@@ -1,0 +1,23 @@
+class Solution:
+    def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+        n = len(s)
+        cum_shifts = [0] * (n + 1)
+
+        for st, end, d in shifts:
+            if d == 0:
+                cum_shifts[st] -= 1
+                cum_shifts[end + 1] += 1
+            else:
+                cum_shifts[st] += 1
+                cum_shifts[end + 1] -= 1
+
+        cum_sum = 0
+        result_list = []
+
+        for i in range(n):
+            cum_sum += cum_shifts[i]
+            new_code = (((ord(s[i]) + cum_sum) - 97) % 26) + 97
+            result_list.append(chr(new_code))
+
+        return ''.join(result_list)
+        
