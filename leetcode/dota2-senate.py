@@ -8,8 +8,7 @@ class Solution:
                 r.append(i)
             else:
                 d.append(i)
-        print(r)
-        print(d)
+        
         while r and d:
             rturn=r.popleft()
             dturn=d.popleft()
